@@ -1,8 +1,15 @@
 #include "calread.h"
 
+using namespace common;
+
 calread::calread(istream& stream) : reader(stream) {}
 //calread::calread(const string& filename) : reader(filename) {}
 calread::~calread() {}
+
+void calread::on_start() {
+    _current.clear();
+    _others.clear();
+}
 
 bool calread::on_line(const string& line) {
     int r = stoi(line);
