@@ -2,7 +2,7 @@ CXX=g++
 LD=g++
 CXXFLAGS=-g -O1 -I../common
 LDFLAGS=-g
-TARGET=day2
+TARGET=day2.exe
 OBJECTS=main.o rps.o 
 
 $(TARGET): $(OBJECTS)

@@ -2,7 +2,7 @@ CXX=g++
 LD=g++
 CXXFLAGS=-g -O1 -I../common
 LDFLAGS=-g
-TARGET=day1
+TARGET=day1.exe
 OBJECTS=main.o calread.o 
 
 $(TARGET): $(OBJECTS)
