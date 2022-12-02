@@ -1,6 +1,6 @@
 CXX=g++
 LD=g++
-CXXFLAGS=-g -O1
+CXXFLAGS=-g -O1 -I../common
 LDFLAGS=-g
 TARGET=day1
 OBJECTS=main.o calread.o 
