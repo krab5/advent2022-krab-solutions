@@ -78,6 +78,7 @@ class reader {
 
                 if (_stream.eof()) {
                     cue = false;
+                    _nlines--;
                     this->on_eof();
                 }
 
