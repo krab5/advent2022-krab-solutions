@@ -48,7 +48,7 @@ class reader {
 
         virtual void on_start() {}
         virtual bool on_line(const string& line) = 0;
-        virtual void on_sep(const string& sep) {}
+        virtual bool on_sep(const string& sep) { return true; }
         virtual void on_interrupt() {}
         virtual void on_eof() {}
 
@@ -69,7 +69,7 @@ class reader {
                 chomp(line);
 
                 if (LineSep(line)) {
-                    this->on_sep(line);
+                    interrupt = !this->on_sep(line);
                     isblock = true;
                     _nblocks++;
                 } else {
