@@ -12,7 +12,7 @@ class calread: public common::reader<std::vector<std::vector<int>>> {
 
         virtual void on_start();
         virtual bool on_line(const std::string& line);
-        virtual void on_sep(const std::string& sep);
+        virtual bool on_sep(const std::string& sep);
         virtual std::vector<std::vector<int>> finish();
 
     private:

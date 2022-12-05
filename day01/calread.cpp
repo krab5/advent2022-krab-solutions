@@ -17,12 +17,13 @@ bool calread::on_line(const string& line) {
     return true;
 }
 
-void calread::on_sep(const string&) {
+bool calread::on_sep(const string&) {
     if (!_current.empty()) {
         vector<int> cp(_current);
         _others.push_back(cp);
         _current.clear();
     }
+    return true;
 }
 
 vector<vector<int>> calread::finish() {
