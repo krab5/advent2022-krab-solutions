@@ -40,6 +40,8 @@ static inline void chomp(string& s) {
 template<typename Out, linesep LineSep = &empty_line>
 class reader {
     public:
+        typedef reader<Out, LineSep> reader_type;
+
         reader(istream& stream) : _stream(stream) {}
         virtual ~reader() {}
 
