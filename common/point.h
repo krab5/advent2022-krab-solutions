@@ -66,7 +66,6 @@ static point unit(const point& op) {
     return result;
 }
 
-
 }
 
 #endif // POINT_H
