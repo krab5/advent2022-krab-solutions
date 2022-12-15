@@ -329,6 +329,29 @@ class matrix {
             }
         }
 
+        struct pretty_printer {
+            virtual void on_unset(std::ostream& out) { out << "<<?>>"; }
+            virtual void on_element(std::ostream& out, size_t k, size_t i, size_t j, const T& e) = 0;
+            virtual void on_linebegin(std::ostream& out, size_t i) = 0;
+            virtual void on_lineend(std::ostream& out, size_t i) = 0;
+        };
+
+        void show_withp(std::ostream& out, pretty_printer* p) {
+            if (column_set()) {
+                size_t nc = columns();
+                for (size_t i = 0, endi = rows(); i < endi; i++) {
+                    p->on_linebegin(out, i);
+                    for (size_t j = 0, endj = columns(); j < endj; j++) {
+                        size_t k = i * nc + j;
+                        p->on_element(out, k, i, j, at(k));
+                    }
+                    p->on_lineend(out, i);
+                }
+            } else {
+                p->on_unset(out);
+            }
+        }
+
         void clear() {
             _content.clear();
             _columns = 0;
